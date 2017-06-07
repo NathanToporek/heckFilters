@@ -19,8 +19,8 @@ void circumvent(FILE* fin) {
     int toRead = 100;
     unsigned char buf[toRead];
     while(!feof(fin)) {
-        fread(buf, sizeof(char), sizeof(buf), fin);
-        fwrite(buf, sizeof(char), sizeof(buf), fout);
+        int nread = fread(buf, sizeof(char), toRead - 1, fin);
+        fwrite(buf, sizeof(char), nread, fout);
     }
     fclose(fout);
 }
@@ -36,8 +36,8 @@ void restore(FILE* fin) {
     int toRead = 100;
     unsigned char buf[toRead];
     while(!feof(fin)) {
-        fread(buf, sizeof(char), sizeof(buf), fin);
-        fwrite(buf, sizeof(char), sizeof(buf), fout);
+        int nread = fread(buf, sizeof(char), toRead - 1, fin);
+        fwrite(buf, sizeof(char), nread, fout);
     }
     fclose(fout);
 }
