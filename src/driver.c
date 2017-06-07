@@ -5,7 +5,8 @@
 #define MEME_OVERLOAD   9001
 
 const char MAGIC_NUMS[4] = {0x50, 0x4B, 0x03, 0x04};
-const char* OUT_NAME = "output.docx";
+const char* OUT_NAME = "encoded.docx";
+const char* OUT_2 = "decoded.out";
 
 void circumvent(FILE* fin) {
     
@@ -26,7 +27,7 @@ void circumvent(FILE* fin) {
 
 void restore(FILE* fin) {
 
-    FILE* fout = fopen(OUT_NAME, "wb");
+    FILE* fout = fopen(OUT_2, "wb");
     if(fout == NULL) {
         printf("Unable to open file, exiting.\n");
         exit(MEME_OVERLOAD);
